@@ -1,19 +1,18 @@
-import { View, Text, StyleSheet, Dimensions, SafeAreaView, FlatList, Button, TouchableOpacity, Alert, ToastAndroid, TextInput, Image } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, SafeAreaView, FlatList, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header/Header';
 import List from '../../components/ProductList/List';
-import BuyList from '../../components/BuyList/BuyList';
+
 let deviceHeight = Dimensions.get('window').height
 
 const ToBuyList = () => {
-  const [toAdd, setToAdd] = useState([])
-  const [text, setText] = useState("")
-  const [search, setSearch] = useState("")
+  const [toAdd, setToAdd] = useState(["ufuk"])
   const [state, setState] = useState(false)
 
   useEffect(() => {
     getData()
+    console.log(toAdd);
   }, [])
 
   useEffect(() => {
@@ -30,6 +29,7 @@ const ToBuyList = () => {
     const getList = await AsyncStorage.getItem('list')
     const jsonGetList = JSON.parse(getList)
     setToAdd(jsonGetList)
+    console.log("GetData Çalıştı");
   }
 
   const setData = async () => {
@@ -38,12 +38,19 @@ const ToBuyList = () => {
     await AsyncStorage.setItem('list', jsonSendList)
   }
   const removeData = async () => {
-    AsyncStorage.removeItem("user-info")
+    return AsyncStorage.removeItem("list")
   }
+
+  const clearAllData = async () => {
+    AsyncStorage.getAllKeys()
+        .then(keys => AsyncStorage.multiRemove(keys))
+        .then(() => alert('success'))
+        .catch ((er) => alert(er))
+}
 
   return (
     <SafeAreaView style={[styles.container, { rowGap: 2 }]}>
-      <Header toAdd={toAdd} state={state} setState={setState} />
+      <Header toAdd={toAdd} state={state} setState={setState} remove={clearAllData} />
       <View style={styles.viewStyle}>
         <FlatList style={{ flex: 1 }}
           data={toAdd}
@@ -58,7 +65,7 @@ const ToBuyList = () => {
                 setToAdd(toAdd.filter(deleteItem => deleteItem !== item))
 
               }} style={styles.touchableStyle}>
-                <Text style={{ fontFamily: "Poppins-SemiBold", color: "black", fontSize: 15, padding: 10 }}>{item}</Text>
+                <Text style={{ fontFamily: "Poppins-SemiBold", color: "black", fontSize: 14, padding: 10 }}>{item}</Text>
               </TouchableOpacity>
             )
           }}>
@@ -80,10 +87,10 @@ const styles = StyleSheet.create({
   viewStyle: {
     flex: 15,
     borderColor: "black",
-    borderRadius:10,
+    borderRadius: 10,
     borderWidth: 1,
     justifyContent: "center",
-    padding:1,
+    padding: 1,
   },
   touchableStyle: {
     backgroundColor: "#eaeaea",

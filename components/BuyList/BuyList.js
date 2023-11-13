@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet,FlatList, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import React from 'react'
 
 
 const BuyList = ({toAdd , setToAdd}) => {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         elevation: 3,
         shadowOffset: { height: 7, width: 3 }
       },
-      textStyle:{ fontFamily: "Poppins-SemiBold", color: "black", fontSize: 15, padding: 10 }
+      textStyle:{ fontFamily: "Poppins-SemiBold", color: "black", fontSize: 14, padding: 10 }
 })
 
 export default BuyList

@@ -3,9 +3,11 @@ import React from 'react'
 
 const list = ["Elma", "Armut", "Tavuk", "Salça", "Erik", "Et", "Tereyağı", "Zeytin", "Sabun",
   "Makarna", "Bulgur", "Islak mendil", "Su", "Süt", "Peynir", "Deterjan", "Domates", "Pirinç",
-  "Soğan", "Patates", "Yoğurt", "Defter", "Kalem", "Çöp Poşeti", "Kedi Maması", "Köpek Maması", "Yumuşatıcı", "Tablet", "Havlu Peçete"]
+  "Soğan", "Patates", "Yoğurt", "Defter", "Kalem", "Çöp Poşeti", "Kedi Maması", "Köpek Maması", 
+  "Yumuşatıcı", "Tablet", "Havlu Peçete"]
 
 const List = ({ toAdd, setToAdd }) => {
+
   return (
     list.sort(),
     <View style={styles.viewStyle}>
@@ -15,7 +17,7 @@ const List = ({ toAdd, setToAdd }) => {
           return (
             <TouchableOpacity style={styles.touchableStyle} onPress={() => {
               if (toAdd.find(s => s == item) == item) {
-                ToastAndroid.show("varrr", ToastAndroid.SHORT)
+                ToastAndroid.show("Eklenmiş", ToastAndroid.SHORT)
               }
               else { setToAdd([...toAdd, item]) }
             }
@@ -24,7 +26,8 @@ const List = ({ toAdd, setToAdd }) => {
             </TouchableOpacity>
           )
         }}>
-      </FlatList></View>
+      </FlatList>
+      </View>
   )
 }
 

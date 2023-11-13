@@ -1,10 +1,10 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 const img = require('../../assets/images/1610958.png')
 const search = require('../../assets/images/m2i8K9b1G6K9m2N4.png')
 import { Style } from './Style'
 
-const Header = ({ toAdd, setState, state }) => {
+const Header = ({ toAdd, setState, state ,remove}) => {
   return (
     <View style={Style.container}>
       <Text style={Style.textStyle}>Alınacaklar Listesi</Text>
@@ -12,12 +12,13 @@ const Header = ({ toAdd, setState, state }) => {
       <TouchableOpacity onPress={() => {
         toAdd.splice(0, toAdd.length)
         setState(!state)
-      }} ><Image
+      }}>
+        <Image
           style={Style.ImageStyle}
           source={img} />
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image
+      <TouchableOpacity onPress={remove} >
+        <Image
           style={Style.ImageStyle}
           source={search} />
       </TouchableOpacity>
