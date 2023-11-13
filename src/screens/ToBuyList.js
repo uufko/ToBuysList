@@ -1,7 +1,9 @@
 import { View, Text, StyleSheet, Dimensions, SafeAreaView, FlatList, Button, TouchableOpacity, Alert, ToastAndroid, TextInput, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Header from '../../components/Header/Header';
+import List from '../../components/ProductList/List';
+import BuyList from '../../components/BuyList/BuyList';
 let deviceHeight = Dimensions.get('window').height
 
 const ToBuyList = () => {
@@ -9,9 +11,6 @@ const ToBuyList = () => {
   const [text, setText] = useState("")
   const [search, setSearch] = useState("")
   const [state, setState] = useState(false)
-  const list = ["Elma", "Armut", "Tavuk", "Salça", "Erik", "Et", "Pirinç", "Tereyağı", "Zeytin", "Sabun",
-    "Makarna", "Bulgur", "Islak mendil", "Su", "Süt", "Peynir", "Deterjan","Domates","Pirinç",
-    "Soğan","Patates","Yoğurt","Defter","Kalem","Çöp Poşeti","Kedi Maması","Köpek Maması","Yumuşatıcı","Tablet","Havlu Peçete"]
 
   useEffect(() => {
     getData()
@@ -43,20 +42,8 @@ const ToBuyList = () => {
   }
 
   return (
-    list.sort(),
     <SafeAreaView style={[styles.container, { rowGap: 2 }]}>
-      <View style={{justifyContent:"center", alignItems:"center", flexDirection:"row", justifyContent:"space-evenly"}}>
-      <Text style={{ fontFamily: "Poppins-SemiBold", color: "black", fontSize: 20, padding: 10 }}>Alınacaklar Listesi</Text>
-      
-      <TouchableOpacity onPress={() => {
-            toAdd.splice(0, toAdd.length)
-            setState(!state)
-          }} ><Image 
-      style={{height:50, width:50, resizeMode:"contain"}}
-      source={require("../../assets/images/1610958.png")}/>
-      </TouchableOpacity>
-      
-      </View>
+      <Header toAdd={toAdd} state={state} setState={setState} />
       <View style={styles.viewStyle}>
         <FlatList style={{ flex: 1 }}
           data={toAdd}
@@ -77,33 +64,8 @@ const ToBuyList = () => {
           }}>
         </FlatList>
       </View>
-
       <View style={[styles.viewStyle, { flex: 10 }]}>
-        <View>
-          <TextInput
-            placeholder='ara'
-            onChangeText={(e) => setText(e)} />
-          
-          <Text>{text}</Text>
-        </View>
-
-        <View style={styles.viewStyle}>
-          <FlatList style={{ flex: 1, margin: 5 }}
-            data={list}
-            renderItem={({ item }) => {
-              return (
-                <TouchableOpacity style={{ alignItems: "stretch", justifyContent: "center" }} onPress={() => {
-                  if (toAdd.find(s => s == item) == item) {
-                    ToastAndroid.show("varrr", ToastAndroid.SHORT)
-                  }
-                  else { setToAdd([...toAdd, item]) }
-                }
-                }>
-                  <Text style={{ fontFamily: "Poppins-SemiBold", color: "black", fontSize: 15, backgroundColor: "#eaeaea", marginVertical: 2, padding: 10, borderRadius: 10 }}>{item}</Text>
-                </TouchableOpacity>
-              )
-            }}>
-          </FlatList></View>
+        <List toAdd={toAdd} setToAdd={setToAdd} />
       </View>
     </SafeAreaView>
   )
@@ -118,8 +80,10 @@ const styles = StyleSheet.create({
   viewStyle: {
     flex: 15,
     borderColor: "black",
+    borderRadius:10,
     borderWidth: 1,
-    justifyContent:"center",
+    justifyContent: "center",
+    padding:1,
   },
   touchableStyle: {
     backgroundColor: "#eaeaea",
@@ -128,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 15,
     alignItems: "center",
-    justifyContent:"center",
+    justifyContent: "center",
     shadowColor: "black",
     shadowOpacity: .5,
     elevation: 3,
