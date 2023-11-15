@@ -1,39 +1,34 @@
-import { View, Text, StyleSheet, Dimensions, SafeAreaView, FlatList, TouchableOpacity } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, StyleSheet, Dimensions, SafeAreaView } from 'react-native'
+import React, { useEffect } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/Header/Header';
 import List from '../../components/ProductList/List';
+import { useSelector, useDispatch } from 'react-redux';
+import BuyList from '../../components/BuyList/BuyList';
+import { addItem, setData2, addItem2 } from '../../Slice';
 
 let deviceHeight = Dimensions.get('window').height
 
 const ToBuyList = () => {
-  const [toAdd, setToAdd] = useState(["ufuk"])
-  const [state, setState] = useState(false)
+  const dispatch = useDispatch();
+  const counter = useSelector((state) => state.counter)
 
   useEffect(() => {
     getData()
-    console.log(toAdd);
   }, [])
 
   useEffect(() => {
+    counter.count
     setData()
-    setToAdd(toAdd)
-  }, [toAdd])
-
-  useEffect(() => {
-    setData()
-  }, [state])
-
+  }, [counter.count])
 
   const getData = async () => {
     const getList = await AsyncStorage.getItem('list')
     const jsonGetList = JSON.parse(getList)
-    setToAdd(jsonGetList)
-    console.log("GetData Çalıştı");
+    dispatch(addItem2(jsonGetList || []))
   }
-
   const setData = async () => {
-    const sendList = toAdd
+    const sendList = counter.count
     const jsonSendList = JSON.stringify(sendList)
     await AsyncStorage.setItem('list', jsonSendList)
   }
@@ -43,36 +38,17 @@ const ToBuyList = () => {
 
   const clearAllData = async () => {
     AsyncStorage.getAllKeys()
-        .then(keys => AsyncStorage.multiRemove(keys))
-        .then(() => alert('success'))
-        .catch ((er) => alert(er))
-}
+      .then(keys => AsyncStorage.multiRemove(keys))
+      .then(() => alert('success'))
+      .catch((er) => alert(er))
+  }
 
   return (
     <SafeAreaView style={[styles.container, { rowGap: 2 }]}>
-      <Header toAdd={toAdd} state={state} setState={setState} remove={clearAllData} />
-      <View style={styles.viewStyle}>
-        <FlatList style={{ flex: 1 }}
-          data={toAdd}
-          horizontal={false}
-          numColumns={3}
-          renderItem={({ item }) => {
-            return (
-              <TouchableOpacity onPress={() => {
-                const index = toAdd.indexOf(item)
-                const lengt = toAdd.length
-                console.log(item, index, lengt)
-                setToAdd(toAdd.filter(deleteItem => deleteItem !== item))
-
-              }} style={styles.touchableStyle}>
-                <Text style={{ fontFamily: "Poppins-SemiBold", color: "black", fontSize: 14, padding: 10 }}>{item}</Text>
-              </TouchableOpacity>
-            )
-          }}>
-        </FlatList>
-      </View>
+      <Header remove={clearAllData} />
+      <BuyList />
       <View style={[styles.viewStyle, { flex: 10 }]}>
-        <List toAdd={toAdd} setToAdd={setToAdd} />
+        <List />
       </View>
     </SafeAreaView>
   )

@@ -1,12 +1,18 @@
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ToastAndroid } from 'react-native'
 import React from 'react'
+import { addItem } from '../../Slice'
+import { useSelector, useDispatch } from 'react-redux';
 
 const list = ["Elma", "Armut", "Tavuk", "Salça", "Erik", "Et", "Tereyağı", "Zeytin", "Sabun",
   "Makarna", "Bulgur", "Islak mendil", "Su", "Süt", "Peynir", "Deterjan", "Domates", "Pirinç",
-  "Soğan", "Patates", "Yoğurt", "Defter", "Kalem", "Çöp Poşeti", "Kedi Maması", "Köpek Maması", 
-  "Yumuşatıcı", "Tablet", "Havlu Peçete"]
+  "Soğan", "Patates", "Yoğurt", "Defter", "Kalem", "Çöp Poşeti", "Kedi Maması", "Köpek Maması",
+  "Yumuşatıcı", "Tablet", "Havlu Peçete", "ufuk"]
 
-const List = ({ toAdd, setToAdd }) => {
+const List = () => {
+  const dispatch = useDispatch();
+  const counter = useSelector((state) => state.counter)
+  const add = counter.count
+
 
   return (
     list.sort(),
@@ -16,18 +22,21 @@ const List = ({ toAdd, setToAdd }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity style={styles.touchableStyle} onPress={() => {
-              if (toAdd.find(s => s == item) == item) {
-                ToastAndroid.show("Eklenmiş", ToastAndroid.SHORT)
+              if (counter.count.find(s => s == item) == item) {
+                ToastAndroid.show(`${item} Eklenmiş`, ToastAndroid.SHORT
+                )
               }
-              else { setToAdd([...toAdd, item]) }
-            }
+              else {
+                dispatch(addItem(item));
+              }
+            } //counter.count = ([...(counter.count), item])
             }>
               <Text style={styles.textStyle}>{item}</Text>
             </TouchableOpacity>
           )
         }}>
-      </FlatList>
-      </View>
+      </FlatList >
+    </View >
   )
 }
 
