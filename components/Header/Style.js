@@ -14,8 +14,8 @@ export const Style = StyleSheet.create({
         padding:5
     },
     ImageStyle: {
-        height: 40,
-        width: 40,
+        height: 30,
+        width: 30,
         resizeMode: "contain"
     }
 })

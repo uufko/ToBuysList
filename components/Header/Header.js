@@ -1,36 +1,30 @@
-import { View, Text, TouchableOpacity, Image, Button } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-const img = require('../../assets/images/1610958.png')
-const search = require('../../assets/images/m2i8K9b1G6K9m2N4.png')
 import { Style } from './Style'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { refresh } from '../../Slice'
+import { Images } from '../../src/metarial/Metarial'
 
 const Header = ({ remove }) => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter)
 
   return (
     <View style={Style.container}>
       <Text style={Style.textStyle}>Alınacaklar Listesi</Text>
-
       <TouchableOpacity onPress={() => {
         dispatch(refresh())
       }}>
         <Image
           style={Style.ImageStyle}
-          source={img} />
+          source={Images.deleteIcon} />
       </TouchableOpacity>
       <TouchableOpacity onPress={remove} >
         <Image
           style={Style.ImageStyle}
-          source={search} />
+          source={Images.searchIcon} />
       </TouchableOpacity>
-      <Button onPress={() => { console.log(counter.count); }} title='ufuk'></Button>
-
     </View>
   )
 }
-
 
 export default Header

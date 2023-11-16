@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { ToastAndroid } from "react-native";
-
 const Slice = createSlice({
     name: "counter",
     initialState: {

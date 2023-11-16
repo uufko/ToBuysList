@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, ToastAndroid } from
 import React from 'react'
 import { addItem } from '../../Slice'
 import { useSelector, useDispatch } from 'react-redux';
+import { Style } from './Style';
 
 const list = ["Elma", "Armut", "Tavuk", "Salça", "Erik", "Et", "Tereyağı", "Zeytin", "Sabun",
   "Makarna", "Bulgur", "Islak mendil", "Su", "Süt", "Peynir", "Deterjan", "Domates", "Pirinç",
@@ -11,27 +12,25 @@ const list = ["Elma", "Armut", "Tavuk", "Salça", "Erik", "Et", "Tereyağı", "Z
 const List = () => {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter)
-  const add = counter.count
-
+  const buyList = counter.count
 
   return (
     list.sort(),
-    <View style={styles.viewStyle}>
-      <FlatList style={{ flex: 1, margin: 5 }}
+    <View style={Style.viewStyle}>
+      <FlatList style={{ flex: 1, marginHorizontal:5 }}
         data={list}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity style={styles.touchableStyle} onPress={() => {
-              if (counter.count.find(s => s == item) == item) {
-                ToastAndroid.show(`${item} Eklenmiş`, ToastAndroid.SHORT
-                )
+            <TouchableOpacity style={Style.touchableStyle} onPress={() => {
+              if (buyList.find(s => s == item) == item) {
+                ToastAndroid.show(`${item} Eklenmiş`, ToastAndroid.CENTER)
               }
               else {
                 dispatch(addItem(item));
               }
             } //counter.count = ([...(counter.count), item])
             }>
-              <Text style={styles.textStyle}>{item}</Text>
+              <Text style={Style.textStyle}>{item}</Text>
             </TouchableOpacity>
           )
         }}>
@@ -39,24 +38,5 @@ const List = () => {
     </View >
   )
 }
-
-const styles = StyleSheet.create({
-  viewStyle: {
-    flex: 15,
-    justifyContent: "center",
-  },
-  touchableStyle: {
-    alignItems: "stretch",
-    justifyContent: "center"
-  },
-  textStyle: {
-    fontFamily: "Poppins-SemiBold",
-    color: "black",
-    fontSize: 15,
-    backgroundColor: "#eaeaea",
-    marginVertical: 2,
-    padding: 10, borderRadius: 10
-  }
-})
 
 export default List
