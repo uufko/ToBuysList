@@ -16,12 +16,12 @@ const Header = ({ remove }) => {
       }}>
         <Image
           style={Style.ImageStyle}
-          source={Images.deleteIcon} />
+          source={Images.blueDeleteIcon} />
       </TouchableOpacity>
       <TouchableOpacity onPress={remove} >
         <Image
           style={Style.ImageStyle}
-          source={Images.searchIcon} />
+          source={Images.blueSearchIcon} />
       </TouchableOpacity>
     </View>
   )

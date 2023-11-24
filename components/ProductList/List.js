@@ -1,42 +1,68 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ToastAndroid } from 'react-native'
-import React from 'react'
-import { addItem } from '../../Slice'
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
+import React from 'react';
+import { addItemBuyList, inscreaseDataBuyList, addControlList, inscreaseNumber, addNumberList } from '../../Slice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Style } from './Style';
 
-const list = ["Elma", "Armut", "Tavuk", "Salça", "Erik", "Et", "Tereyağı", "Zeytin", "Sabun",
-  "Makarna", "Bulgur", "Islak mendil", "Su", "Süt", "Peynir", "Deterjan", "Domates", "Pirinç",
-  "Soğan", "Patates", "Yoğurt", "Defter", "Kalem", "Çöp Poşeti", "Kedi Maması", "Köpek Maması",
-  "Yumuşatıcı", "Tablet", "Havlu Peçete", "ufuk"]
-
 const List = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter)
-  const buyList = counter.count
+  const counter = useSelector(state => state.counter);
+  const List = counter.count;
+  const controlList = counter.controlList
 
   return (
-    list.sort(),
-    <View style={Style.viewStyle}>
-      <FlatList style={{ flex: 1, marginHorizontal:5 }}
-        data={list}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity style={Style.touchableStyle} onPress={() => {
-              if (buyList.find(s => s == item) == item) {
-                ToastAndroid.show(`${item} Eklenmiş`, ToastAndroid.CENTER)
-              }
-              else {
-                dispatch(addItem(item));
-              }
-            } //counter.count = ([...(counter.count), item])
-            }>
-              <Text style={Style.textStyle}>{item}</Text>
-            </TouchableOpacity>
-          )
-        }}>
-      </FlatList >
-    </View >
-  )
-}
+    (
+      <View style={Style.viewStyle}>
+        <FlatList
+          style={{ flex: 1, marginHorizontal: 5 }}
+          data={List}
+          renderItem={({ item }) => {
+            return (
+              <TouchableOpacity
+                style={Style.touchableStyle}
+                onPress={
+                  () => {
 
-export default List
+                    if (counter.controlList.find(s => s == item.product)) {
+                      const sonuc = controlList.find(e => e == item.product) //product ve number 
+                      const index = controlList.indexOf(sonuc) //index
+                      dispatch(inscreaseNumber(index))
+                    }
+                    else {
+                      dispatch(addControlList(item.product))
+                      dispatch(addNumberList(item.number))
+                    }
+                  }
+                }>
+                <View
+                  style={{
+                    backgroundColor: '#9739e1',
+                    flex: 1,
+                    height: '100%',
+                    borderTopLeftRadius: 10,
+                    borderBottomLeftRadius: 10,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}></View>
+                <View
+                  style={{
+                    flex: 27,
+                    justifyContent: 'center',
+                    alignItems: 'start',
+                  }}>
+                  <Text style={Style.textStyle}>{item.product}</Text>
+                </View>
+              </TouchableOpacity>
+            );
+          }}></FlatList>
+      </View>
+    )
+  );
+};
+
+export default List;

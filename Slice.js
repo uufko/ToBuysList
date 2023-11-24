@@ -1,36 +1,43 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Data } from "./src/metarial/Metarial";
+import { useEffect } from "react";
 
 const Slice = createSlice({
+
     name: "counter",
     initialState: {
-        count: [], status: false     //global değer
+        count: Data.listData, controlList: [], numberList: [] //global değer
     },
     reducers: {
-        inscrease(state) { //arttırmak istersek
-            state.count++;
+        addControlList(state, item) {
+            state.controlList.push(item.payload)
         },
-        decrease(state) { //azaltmak istersek
-            state.count--
+        inscreaseNumber(state, index) {
+            state.numberList[index.payload]++
         },
-        refresh(state) { //başlangıç değeri
-            state.count = [];
+        addNumberList(state, item) {
+            state.numberList.push(item.payload)
         },
-        addItem(state, item) {
-            state.count.push(item.payload) //arraya eleman ekleme
+        refresh(state) {
+            state.buyList = []
+            state.controlList = []
+            state.numberList = []
         },
-        setState(state, item) {
-            state.count = [...state.count, item.payload] //arraya eleman ekleme
-        },
-        deleteItem(state, index) {
-            state.count.splice(index.payload ,1 ) //array eleman çıkarma
-        },
-        addItem2(state, data){
-            state.count = data.payload
+        decreaseData(state, index) {
+            state.controlList.splice(index.payload ,1),
+            state.numberList.splice(index.payload, 1)
+            console.log(index.payload);
+            console.log(state.numberList);
+            console.log(state.controlList);
         }
-
-
     }
 })
 
-export const { addItem, deleteItem,refresh, setData2, addItem2 } = Slice.actions
+export const {
+    addNumberList,
+    inscreaseNumber,
+    addControlList,
+    inscreaseDataBuyList,
+    refresh,
+    decreaseData } = Slice.actions
 export default Slice

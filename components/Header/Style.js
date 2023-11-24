@@ -5,11 +5,18 @@ export const Style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
-        justifyContent: "space-evenly"
+        justifyContent: "space-evenly",
+        backgroundColor:"white",
+        shadowColor: "black",
+        shadowOpacity: .5,
+        elevation: 10,
+        shadowOffset: { height: 7, width: 3 },
+        borderRadius:10,
+        margin:2
     },
     textStyle: {
         fontFamily: "Poppins-SemiBold",
-        color: "black",
+        color: "#9739e1",
         fontSize: 25,
         padding:5
     },
