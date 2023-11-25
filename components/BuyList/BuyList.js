@@ -3,12 +3,13 @@ import React from 'react';
 import { decreaseData } from '../../Slice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Style } from './Style';
+
 const BuyList = () => {
   const dispatch = useDispatch();
   const counter = useSelector(state => state.counter);
   let controlList = counter.controlList
   return (
-    <View style={Style.viewStyle}>
+    <View style={Style.container}>
       <FlatList
         style={{ flex: 1, marginVertical: 2 }}
         data={controlList}
@@ -21,17 +22,9 @@ const BuyList = () => {
                 const index = controlList.indexOf(item);
                 dispatch(decreaseData(index));
               }}
-              style={Style.touchableStyle}>
+              style={[Style.touchableStyle, {backgroundColor:counter.currentViewColor}]}>
               <View
-                style={{
-                  backgroundColor: '#9739e1',
-                  flex: 2,
-                  height: 50,
-                  borderTopLeftRadius: 10,
-                  borderBottomLeftRadius: 10,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
+                style={[Style.viewStyle, {backgroundColor:counter.currentFontColor}]}>
                 <Text style={{ color: 'white', fontFamily: 'Poppins-SemiBold' }}>
                   {counter.numberList[controlList.indexOf(item)]}
                 </Text>
@@ -42,7 +35,7 @@ const BuyList = () => {
                   justifyContent: 'center',
                   alignItems: 'start',
                 }}>
-                <Text style={Style.textStyle}>{item}</Text>
+                <Text style={[Style.textStyle, {color:counter.currentFontColor}]}>{item}</Text>
               </View>
             </TouchableOpacity>
           )

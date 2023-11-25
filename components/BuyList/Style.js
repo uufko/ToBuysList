@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
 
 export const Style = StyleSheet.create({
-  viewStyle: {
+  container: {
     flex: 15,
     justifyContent: 'center',
   },
   touchableStyle: {
-    backgroundColor: 'white',
+    backgroundColor: '#0a0a0a',
     marginVertical: 2,
     marginHorizontal: 4,
     flex: 1,
@@ -21,9 +21,18 @@ export const Style = StyleSheet.create({
   },
   textStyle: {
     fontFamily: 'Poppins-SemiBold',
-    color: 'black',
+    color: 'white',
     fontSize: 13,
     paddingVertical: 10,
     paddingLeft: 5,
   },
+  viewStyle:{
+    backgroundColor: '#21c063',
+    flex: 2,
+    height: 50,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });

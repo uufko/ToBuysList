@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native"
 
+
+
 export const Style = StyleSheet.create({
-    container: {
+    container : {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
         justifyContent: "space-evenly",
-        backgroundColor:"white",
+        backgroundColor:"#0a0a0a",
         shadowColor: "black",
         shadowOpacity: .5,
         elevation: 10,
@@ -16,8 +18,8 @@ export const Style = StyleSheet.create({
     },
     textStyle: {
         fontFamily: "Poppins-SemiBold",
-        color: "#9739e1",
-        fontSize: 25,
+        color: "white",
+        fontSize: 20,
         padding:5
     },
     ImageStyle: {

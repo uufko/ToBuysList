@@ -1,8 +1,24 @@
+
 export const Images = {
     searchIcon: require('../../assets/images/1024px-Search_Icon.svg.png'),
     deleteIcon: require('../../assets/images/1214428.png'),
     blueSearchIcon: require('../../assets/images/searchlue.png'),
-    blueDeleteIcon: require('../../assets/images/deleteblue.png')
+    blueDeleteIcon: require('../../assets/images/deleteblue.png'),
+    darkDeleteIcon: require('../../assets/images/darkDeleteIcon.png'),
+    darkSearchIcon: require('../../assets/images/darkSearchIcon.png'),
+    darkThemeIcon: require('../../assets/images/darkTheme.png'),
+    lightThemeIcon: require('../../assets/images/lightTheme.png')
+    
+
+}
+
+export const Colors = {
+    darkContainerColor:"#222222",
+    darkViewColor: "#0a0a0a",
+    darkFontColor: "#21c063",
+    lightContainerColor: "#f2f1f6",
+    lightViewColor: "white",
+    lightFontColor: "#1ea0e2",
 }
 export const Data = {
     listData: [

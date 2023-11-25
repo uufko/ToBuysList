@@ -2,7 +2,7 @@ import { View, SafeAreaView } from 'react-native';
 import React, { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector, useDispatch } from 'react-redux';
-import { setNumberList, setProductList } from '../../../Slice';
+import { setColorState, setNumberList, setProductList, setThemeStyle, setThemeStyleState } from '../../../Slice';
 import { Style } from './Style';
 import Header from '../../../components/Header/Header';
 import List from '../../../components/ProductList/List';
@@ -13,8 +13,10 @@ const ToBuyList = () => {
   const counter = useSelector(state => state.counter);
   const numberList = counter.numberList
   const controlList = counter.controlList
+  const theme = counter.colorState
 
   useEffect(() => {
+    getTheme()
     getNumberData()
     getProductData()
   }, [])
@@ -23,6 +25,10 @@ const ToBuyList = () => {
     setNumberData()
     setProductData()
   }, [numberList])
+
+  useEffect(()=>{
+    setTheme()
+  },[theme])
 
   const setNumberData = async () => {
     const sendNumber = numberList;
@@ -34,6 +40,11 @@ const ToBuyList = () => {
     const jsonSendProduct = JSON.stringify(sendProduct);
     await AsyncStorage.setItem('product', jsonSendProduct);
   };
+  const setTheme = async () => {
+    const sendThemeStyle = theme;
+    const jsonThemeStyle = JSON.stringify(sendThemeStyle);
+    await AsyncStorage.setItem('theme', jsonThemeStyle);
+  };
 
   const getNumberData = async () => {
     const getNumber = await AsyncStorage.getItem('number');
@@ -44,6 +55,12 @@ const ToBuyList = () => {
     const getProduct = await AsyncStorage.getItem('product');
     const jsonGetProduct = JSON.parse(getProduct);
     dispatch(setProductList(jsonGetProduct || controlList));
+  };
+  const getTheme = async () => {
+    const getThemeStyle = await AsyncStorage.getItem('theme');
+    const jsonGetThemeStyle = JSON.parse(getThemeStyle);
+    dispatch(setThemeStyle(jsonGetThemeStyle));
+    dispatch(setThemeStyleState())
   };
 
   const removeData = async () => {
@@ -58,7 +75,7 @@ const ToBuyList = () => {
   };
 
   return (
-    <SafeAreaView style={[Style.container, { rowGap: 2 }]}>
+    <SafeAreaView style={[Style.container, { rowGap: 2 },{backgroundColor:counter.currentContainerColor}]}>
       <Header remove={clearAllData} />
       <BuyList />
 

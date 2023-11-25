@@ -23,7 +23,7 @@ const List = () => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              style={Style.touchableStyle}
+              style={[Style.touchableStyle, {backgroundColor:counter.currentViewColor}]}
               onPress={
                 () => {
 
@@ -40,7 +40,7 @@ const List = () => {
               }>
               <View
                 style={{
-                  backgroundColor: '#9739e1',
+                  backgroundColor: counter.currentFontColor,
                   flex: 1,
                   height: '100%',
                   borderTopLeftRadius: 10,
@@ -54,7 +54,7 @@ const List = () => {
                   justifyContent: 'center',
                   alignItems: 'start',
                 }}>
-                <Text style={Style.textStyle}>{item.product}</Text>
+                <Text style={[Style.textStyle, {color: counter.currentFontColor}]}>{item.product}</Text>
               </View>
             </TouchableOpacity>
           );

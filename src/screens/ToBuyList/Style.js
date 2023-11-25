@@ -5,7 +5,7 @@ export const Style = StyleSheet.create({
     flex: 1,
     flexDirection: 'colums',
     padding: 2,
-    backgroundColor: '#f2f1f6',
+    backgroundColor: '#222222',
   },
   viewStyle: {
     flex: 15,

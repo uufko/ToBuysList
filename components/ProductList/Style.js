@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
-
+  
 export const Style = StyleSheet.create({
+
     viewStyle: {
         flex: 1,
         justifyContent: "center",
@@ -11,12 +12,12 @@ export const Style = StyleSheet.create({
         flexDirection:"row",
         borderRadius: 10,
         marginVertical:2,
+        backgroundColor:"black"
     },
     textStyle: {
         fontFamily: "Poppins-SemiBold",
-        color: "black",
+        color: "white",
         fontSize: 13,
-        backgroundColor: "white",
         marginVertical: 2,
         padding: 10, 
         
