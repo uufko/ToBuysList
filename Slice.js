@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Data } from "./src/metarial/Metarial";
-import { useEffect } from "react";
+
+let listData = Data.listData
 
 const Slice = createSlice({
-
     name: "counter",
     initialState: {
-        count: Data.listData, controlList: [], numberList: [] //global değer
+        count: listData, controlList: [], numberList: [] //global değer
     },
     reducers: {
         addControlList(state, item) {
@@ -24,11 +24,18 @@ const Slice = createSlice({
             state.numberList = []
         },
         decreaseData(state, index) {
-            state.controlList.splice(index.payload ,1),
-            state.numberList.splice(index.payload, 1)
-            console.log(index.payload);
-            console.log(state.numberList);
-            console.log(state.controlList);
+            state.numberList[index.payload]--
+            if (state.numberList[index.payload] == 0) {
+                state.controlList.splice(index.payload, 1),
+                    state.numberList.splice(index.payload, 1)
+            }
+
+        },
+        setNumberList(state, data ) {
+            state.numberList = data.payload
+        },
+        setProductList(state, data) {
+            state.controlList = data.payload
         }
     }
 })
@@ -39,5 +46,7 @@ export const {
     addControlList,
     inscreaseDataBuyList,
     refresh,
-    decreaseData } = Slice.actions
+    decreaseData,
+    setNumberList,
+    setProductList } = Slice.actions
 export default Slice

@@ -4,7 +4,6 @@ export const Images = {
     blueSearchIcon: require('../../assets/images/searchlue.png'),
     blueDeleteIcon: require('../../assets/images/deleteblue.png')
 }
-
 export const Data = {
     listData: [
         { number: 1, product: "Elma" },
@@ -16,6 +15,22 @@ export const Data = {
         { number: 1, product: "Yoğurt" },
         { number: 1, product: "Ayran" },
         { number: 1, product: "Kedi Maması" },
-        { number: 1, product: "Çöp Poşeti" }
-    ]
+        { number: 1, product: "Çöp Poşeti" },
+        { number: 1, product: "Fındık" },
+        { number: 1, product: "Badem" },
+        { number: 1, product: "Cips" },
+        { number: 1, product: "Çikolata" },
+        { number: 1, product: "Tavuk" },
+        { number: 1, product: "Et" },
+        { number: 1, product: "Peynir" },
+        { number: 1, product: "Su" },
+        { number: 1, product: "Meyve Suyu" },
+        { number: 1, product: "Zeytin" },
+        { number: 1, product: "Bal" },
+        { number: 1, product: "Defter" },
+        { number: 1, product: "Kitap" },
+        { number: 1, product: "Reçel" },
+        { number: 1, product: "Turşu" },
+        { number: 1, product: "Balık" }
+    ],
 }
