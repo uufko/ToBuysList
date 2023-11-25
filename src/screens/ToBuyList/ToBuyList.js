@@ -28,6 +28,8 @@ const ToBuyList = () => {
 
   useEffect(()=>{
     setTheme()
+    setNumberData()
+    setProductData()
   },[theme])
 
   const setNumberData = async () => {
