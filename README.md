@@ -10,7 +10,8 @@ First, you will need to start **Metro**, the JavaScript _bundler_ that ships _wi
 
 To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
+```bash![ezgif com-video-to-gif](https://github.com/uufko/ToBuysList/assets/98399730/79477216-2068-4829-8787-7f054bb64d46)
+
 # using npm
 npm start
 
