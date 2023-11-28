@@ -2,7 +2,7 @@ import { View, SafeAreaView } from 'react-native';
 import React, { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector, useDispatch } from 'react-redux';
-import { setColorState, setNumberList, setProductList, setThemeStyle, setThemeStyleState } from '../../../Slice';
+import { setNumberList, setProductList, setThemeStyle, setThemeStyleState } from '../../../Slice';
 import { Style } from './Style';
 import Header from '../../../components/Header/Header';
 import List from '../../../components/ProductList/List';
@@ -24,6 +24,11 @@ const ToBuyList = () => {
   useEffect(() => {
     setNumberData()
     setProductData()
+  }, [controlList])
+
+  useEffect(() => {
+    setNumberData()
+    setProductData()
   }, [numberList])
 
   useEffect(()=>{
@@ -31,6 +36,7 @@ const ToBuyList = () => {
     setNumberData()
     setProductData()
   },[theme])
+
 
   const setNumberData = async () => {
     const sendNumber = numberList;

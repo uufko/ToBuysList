@@ -7,7 +7,8 @@ import { Style } from './Style';
 const BuyList = () => {
   const dispatch = useDispatch();
   const counter = useSelector(state => state.counter);
-  let controlList = counter.controlList
+  const controlList = counter.controlList
+  const numberList = counter.numberList
   return (
     <View style={Style.container}>
       <FlatList
@@ -26,7 +27,7 @@ const BuyList = () => {
               <View
                 style={[Style.viewStyle, {backgroundColor:counter.currentFontColor}]}>
                 <Text style={{ color: 'white', fontFamily: 'Poppins-SemiBold' }}>
-                  {counter.numberList[controlList.indexOf(item)]}
+                  {numberList[controlList.indexOf(item)]}
                 </Text>
               </View>
               <View

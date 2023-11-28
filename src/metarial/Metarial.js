@@ -7,7 +7,8 @@ export const Images = {
     darkDeleteIcon: require('../../assets/images/darkDeleteIcon.png'),
     darkSearchIcon: require('../../assets/images/darkSearchIcon.png'),
     darkThemeIcon: require('../../assets/images/darkTheme.png'),
-    lightThemeIcon: require('../../assets/images/lightTheme.png')
+    lightThemeIcon: require('../../assets/images/lightTheme.png'),
+    addButton : require('../../assets/images/addButton.png')
     
 
 }
