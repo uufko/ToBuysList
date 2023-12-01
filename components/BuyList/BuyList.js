@@ -32,7 +32,6 @@ const BuyList = () => {
               </View>
               <View
                 style={{
-                  flex: 12,
                   justifyContent: 'center',
                   alignItems: 'start',
                 }}>

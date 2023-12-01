@@ -7,10 +7,12 @@ let listData = Data.listData
 const Slice = createSlice({
     name: "counter",
     initialState: {
-        count: listData,
+        count: [],
+        copyOfCount:[],
         controlList: [],
         numberList: [],
         colorState: false,
+        alertText : false,
         currentFontColor: Colors.lightFontColor,
         currentViewColor: Colors.lightViewColor,
         currentContainerColor: Colors.lightContainerColor,
@@ -22,13 +24,22 @@ const Slice = createSlice({
     reducers: {
         addControlList(state, item) {
             state.controlList.push(item.payload)
+            console.log(state.controlList);
+        },
+        addToList(state,newProduch){
+            state.count.push({number:1, product:newProduch.payload})
+        },
+        addCopyCount(state,newProduch){
+            state.copyOfCount.push(newProduch.payload)
         },
         inscreaseNumber(state, index) {
             state.numberList[index.payload]++
         },
         addNumberList(state, item) {
             state.numberList.push(item.payload)
+            console.log(state.numberList);
         },
+        
         refresh(state) {
             state.controlList = []
             state.numberList = []
@@ -46,6 +57,14 @@ const Slice = createSlice({
         setProductList(state, data) {
             state.controlList = data.payload
         },
+        //
+        setList2(state, data) {
+            state.count = data.payload
+        },
+        setCopyList(state, data) {
+            state.copyOfCount = data.payload
+        },
+        //
         setColorState(state) {
             state.colorState = !state.colorState
             if (state.colorState == false) {
@@ -85,6 +104,9 @@ const Slice = createSlice({
                 state.currentSearchIcon = Images.blueSearchIcon
                 state.currentThemeIcon = Images.lightThemeIcon
             }
+        },
+        setAlertText(state){
+            state.alertText=true
         }
     }
 })
@@ -93,11 +115,11 @@ export const {
     addNumberList,
     inscreaseNumber,
     addControlList,
-    inscreaseDataBuyList,
+    inscreaseDataBuyList, deleteControlList, deleteNumberList,
     refresh,
-    decreaseData,
-    setNumberList,
+    decreaseData, setAlertText,
+    setNumberList, setCopyList, setList2,
     setProductList,
-    setColorState,
+    setColorState, addToList, addCopyCount,
 setThemeStyle,setThemeStyleState } = Slice.actions
 export default Slice

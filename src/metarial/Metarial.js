@@ -8,9 +8,16 @@ export const Images = {
     darkSearchIcon: require('../../assets/images/darkSearchIcon.png'),
     darkThemeIcon: require('../../assets/images/darkTheme.png'),
     lightThemeIcon: require('../../assets/images/lightTheme.png'),
-    addButton : require('../../assets/images/addButton.png')
+    addButton : require('../../assets/images/addButton.png'),
+    editButton : require('../../assets/images/editButton.png'),
+    closeButton : require('../../assets/images/closeButton.png'),
+    listDeleteIcon : require('../../assets/images/listDeleteIcon.png')
     
 
+}
+
+export const Fonts = {
+    projectFont:"Poppins-SemiBold"
 }
 
 export const Colors = {

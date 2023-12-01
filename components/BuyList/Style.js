@@ -1,23 +1,24 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
 
 export const Style = StyleSheet.create({
   container: {
-    flex: 15,
     justifyContent: 'center',
+    height:deviceHeight*.5,
+    width:deviceWidth, flex:1
   },
   touchableStyle: {
     backgroundColor: '#0a0a0a',
     marginVertical: 2,
     marginHorizontal: 4,
-    flex: 1,
     borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
     shadowColor: 'black',
     shadowOpacity: 0.5,
     elevation: 3,
     shadowOffset: {height: 7, width: 3},
-    flexDirection: 'row',
+    flexDirection: 'row', flex:15
+    
   },
   textStyle: {
     fontFamily: 'Poppins-SemiBold',
@@ -28,11 +29,12 @@ export const Style = StyleSheet.create({
   },
   viewStyle:{
     backgroundColor: '#21c063',
-    flex: 2,
     height: 50,
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    width:deviceWidth*.04,
+    
   }
 });
