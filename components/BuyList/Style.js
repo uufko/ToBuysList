@@ -17,7 +17,9 @@ export const Style = StyleSheet.create({
     shadowOpacity: 0.5,
     elevation: 3,
     shadowOffset: {height: 7, width: 3},
-    flexDirection: 'row', flex:15
+    flexDirection: 'row', 
+    flex:15,
+    height:deviceHeight*.07
     
   },
   textStyle: {
@@ -29,12 +31,12 @@ export const Style = StyleSheet.create({
   },
   viewStyle:{
     backgroundColor: '#21c063',
-    height: 50,
+    height: deviceHeight*.07,
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    width:deviceWidth*.04,
+    width:deviceWidth*.05,
     
   }
 });

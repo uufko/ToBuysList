@@ -3,21 +3,23 @@ import React from 'react'
 import { Style } from './style'
 import UImage from '../../atoms/uImage/uImage'
 import { Colors, Images } from '../../../metarial/Metarial'
-import { useDispatch} from 'react-redux';
-import { refresh, setColorState } from '../../../../Slice'
+import { useDispatch, useSelector} from 'react-redux';
+import { refresh, setColorState, setThemeStyle } from '../../../../Slice'
 
 const TopHeader = ({headerText, removeAllData}) => {
   const dispatch = useDispatch();
-
+  const counter = useSelector(state => state.counter);
   return (
-    <View style={Style.container}>
+    <View style={[Style.container, {backgroundColor:counter.currentViewColor}]}>
       <View style={{flex:5}}>
-      <Text style={Style.textStyle}>{headerText}</Text>
+      <Text style={[Style.textStyle,{color:counter.currentFontColor}]}>{headerText}</Text>
       </View>
       <View style={{flex:2,flexDirection:"row", marginHorizontal:10, justifyContent:"space-between"}}>
-      <UImage imageSource={Images.darkDeleteIcon} onPress={()=>dispatch(refresh())} />
-      <UImage imageSource={Images.darkThemeIcon} onPress={()=>dispatch(setColorState())}/>
-      <UImage imageSource={Images.closeButton} onPress={removeAllData}/>
+      <UImage imageSource={counter.currentDeleteIcon} onPress={()=>
+        dispatch(refresh())
+        } />
+      <UImage imageSource={counter.currentThemeIcon} onPress={()=>
+        dispatch(setColorState())}/>
       </View>
     </View>
   )

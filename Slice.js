@@ -16,9 +16,12 @@ const Slice = createSlice({
         currentFontColor: Colors.lightFontColor,
         currentViewColor: Colors.lightViewColor,
         currentContainerColor: Colors.lightContainerColor,
-        currentDeleteIcon: Images.blueDeleteIcon,
-        currentSearchIcon: Images.blueSearchIcon,
-        currentThemeIcon: Images.lightThemeIcon
+        currentDeleteIcon: Images.lightDelete,
+        currentThemeIcon: Images.lightTheme,
+        currentAddIcon: Images.lightAdd,
+        currentCloseIcon: Images.lightClose,
+        textInputButtonState: false,
+        currentEditIcon: Images.lightEdit
         //global değer
     },
     reducers: {
@@ -71,17 +74,21 @@ const Slice = createSlice({
                 state.currentContainerColor = Colors.darkContainerColor
                 state.currentFontColor = Colors.darkFontColor
                 state.currentViewColor = Colors.darkViewColor
-                state.currentDeleteIcon = Images.darkDeleteIcon
-                state.currentSearchIcon = Images.darkSearchIcon
-                state.currentThemeIcon = Images.darkThemeIcon
+                state.currentDeleteIcon = Images.darkDelete
+                state.currentThemeIcon = Images.darkTheme
+                state.currentAddIcon = Images.darkAdd
+                state.currentCloseIcon = Images.darkClose
+                state.currentEditIcon = Images.darkEdit
             }
             else {
                 state.currentFontColor = Colors.lightFontColor,
                 state.currentViewColor = Colors.lightViewColor,
                 state.currentContainerColor = Colors.lightContainerColor
-                state.currentDeleteIcon = Images.blueDeleteIcon
-                state.currentSearchIcon = Images.blueSearchIcon
-                state.currentThemeIcon = Images.lightThemeIcon
+                state.currentDeleteIcon = Images.lightDelete
+                state.currentThemeIcon = Images.lightTheme
+                state.currentAddIcon = Images.lightAdd
+                state.currentCloseIcon = Images.lightClose
+                state.currentEditIcon = Images.lightEdit
             }
         },
         setThemeStyle(state,themeState){
@@ -92,33 +99,48 @@ const Slice = createSlice({
                 state.currentContainerColor = Colors.darkContainerColor
                 state.currentFontColor = Colors.darkFontColor
                 state.currentViewColor = Colors.darkViewColor
-                state.currentDeleteIcon = Images.darkDeleteIcon
-                state.currentSearchIcon = Images.darkSearchIcon
-                state.currentThemeIcon = Images.darkThemeIcon
+                state.currentDeleteIcon = Images.darkDelete
+                state.currentThemeIcon = Images.darkTheme
+                state.currentAddIcon = Images.darkAdd
+                state.currentCloseIcon = Images.darkClose
+                state.currentEditIcon = Images.darkEdit
             }
             else {
                 state.currentFontColor = Colors.lightFontColor,
                 state.currentViewColor = Colors.lightViewColor,
                 state.currentContainerColor = Colors.lightContainerColor
-                state.currentDeleteIcon = Images.blueDeleteIcon
-                state.currentSearchIcon = Images.blueSearchIcon
-                state.currentThemeIcon = Images.lightThemeIcon
+                state.currentDeleteIcon = Images.lightDelete
+                state.currentThemeIcon = Images.lightTheme
+                state.currentAddIcon = Images.lightAdd
+                state.currentCloseIcon = Images.lightClose
+                state.currentEditIcon = Images.lightEdit
             }
         },
         setAlertText(state){
             state.alertText=true
+        },
+        deleteListItem(state, index){
+            console.log(index.payload);
+            state.count.splice(index.payload, 1)
+        },
+        deleteControlList(state, index){
+            console.log(index.payload);
+            
+        },
+        deleteNumberList(state, index){
+            console.log(index.payload);
         }
     }
 })
 
 export const {
     addNumberList,
-    inscreaseNumber,
+    inscreaseNumber, setTextInputButtonState,
     addControlList,
     inscreaseDataBuyList, deleteControlList, deleteNumberList,
     refresh,
     decreaseData, setAlertText,
-    setNumberList, setCopyList, setList2,
+    setNumberList, setCopyList, setList2, deleteListItem,
     setProductList,
     setColorState, addToList, addCopyCount,
 setThemeStyle,setThemeStyleState } = Slice.actions

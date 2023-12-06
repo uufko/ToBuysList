@@ -7,7 +7,8 @@ export const Style = StyleSheet.create({
     viewStyle:{
         flexDirection:"row",
         justifyContent:"center",
-        alignItems:"center"
+        alignItems:"center",
+        
     },
     touchableStyle:{
         height:deviceWidth*.12, 
@@ -15,11 +16,15 @@ export const Style = StyleSheet.create({
         backgroundColor:Colors.darkFontColor,
         borderTopRightRadius:20,
         borderBottomRightRadius:20,
-        justifyContent:"center", alignItems:"center"
+        justifyContent:"center", alignItems:"center",
+        shadowColor: "black",
+        shadowOpacity: .5,
+        elevation: 2,
+        shadowOffset: { height: 7, width: 3 },
     },
     textInputStyle:{
         height:deviceWidth*.12, 
-        width:deviceWidth*.5 , 
+        width:deviceWidth*.7 , 
         borderColor:Colors.darkFontColor,
         backgroundColor:Colors.darkViewColor,
         paddingLeft:10,

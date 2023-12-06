@@ -10,7 +10,11 @@ export const Style = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: Colors.darkViewColor,
         height:deviceHeight*.06,
-        marginVertical:2
+        marginVertical:2,
+        shadowColor: "black",
+        shadowOpacity: .5,
+        elevation: 2,
+        shadowOffset: { height: 7, width: 3 },
     },
     viewStyle: {
         flex: 20,

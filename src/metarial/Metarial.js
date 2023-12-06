@@ -1,18 +1,16 @@
 
 export const Images = {
-    searchIcon: require('../../assets/images/1024px-Search_Icon.svg.png'),
-    deleteIcon: require('../../assets/images/1214428.png'),
-    blueSearchIcon: require('../../assets/images/searchlue.png'),
-    blueDeleteIcon: require('../../assets/images/deleteblue.png'),
-    darkDeleteIcon: require('../../assets/images/darkDeleteIcon.png'),
-    darkSearchIcon: require('../../assets/images/darkSearchIcon.png'),
-    darkThemeIcon: require('../../assets/images/darkTheme.png'),
-    lightThemeIcon: require('../../assets/images/lightTheme.png'),
-    addButton : require('../../assets/images/addButton.png'),
-    editButton : require('../../assets/images/editButton.png'),
-    closeButton : require('../../assets/images/closeButton.png'),
-    listDeleteIcon : require('../../assets/images/listDeleteIcon.png')
-    
+    darkDelete: require('../../assets/images/darkDelete.png'),
+    lightDelete: require('../../assets/images/lightDelete.png'),
+    darkTheme: require('../../assets/images//darkTheme.png'),
+    lightTheme: require('../../assets/images/lightTheme.png'),
+    darkAdd : require('../../assets/images/darkAdd.png'),
+    darkClose : require('../../assets/images/darkClose.png'),
+    lightAdd : require('../../assets/images/lightAdd.png'),
+    lightClose : require('../../assets/images/lightClose.png'),
+    lightEdit : require('../../assets/images/lightEdit.png'),
+    darkEdit : require('../../assets/images/dartEdit.png'),
+    lightRemove : require('../../assets/images/lightRemove.png')
 
 }
 
