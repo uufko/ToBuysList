@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import ListHeader from '../../molecules/listHeader/listHeader'
 import { useSelector, useDispatch } from 'react-redux';
 import FlatListItem from '../../atoms/listItem/listItem';
-import { addToList, addCopyCount, setAlertText, addControlList, addNumberList, inscreaseNumber, deleteControlList, deleteNumberList, setTextInputButtonState, deleteListItem } from '../../../../Slice';
+import { addToList, addCopyCount, setAlertText, addControlList, addNumberList, inscreaseNumber,  deleteListItem, deleteCopyCount } from '../../../../Slice';
 import TextInputWithButton from '../../atoms/textInputWithButton/textInputWithButton';
 
 const ProductList = () => {
@@ -57,8 +57,7 @@ const ProductList = () => {
             <FlatListItem listDeleteIconPressed={() => {
               const index = List.indexOf(item)
               dispatch(deleteListItem(index))
-              dispatch(deleteControlList(item))
-              dispatch(deleteNumberList(item))
+              dispatch(deleteCopyCount(index))
             }}
               listDeleteIconVisible={listDeleteIcon}
               text={item.product}

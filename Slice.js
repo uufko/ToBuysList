@@ -27,20 +27,19 @@ const Slice = createSlice({
     reducers: {
         addControlList(state, item) {
             state.controlList.push(item.payload)
-            console.log(state.controlList);
         },
         addToList(state,newProduch){
             state.count.push({number:1, product:newProduch.payload})
         },
         addCopyCount(state,newProduch){
             state.copyOfCount.push(newProduch.payload)
+            console.log(state.copyOfCount.sort());
         },
         inscreaseNumber(state, index) {
             state.numberList[index.payload]++
         },
         addNumberList(state, item) {
             state.numberList.push(item.payload)
-            console.log(state.numberList);
         },
         
         refresh(state) {
@@ -120,22 +119,17 @@ const Slice = createSlice({
             state.alertText=true
         },
         deleteListItem(state, index){
-            console.log(index.payload);
             state.count.splice(index.payload, 1)
         },
-        deleteControlList(state, index){
-            console.log(index.payload);
-            
-        },
-        deleteNumberList(state, index){
-            console.log(index.payload);
+        deleteCopyCount(state, index){
+            state.copyOfCount.splice(index.payload, 1)
         }
     }
 })
 
 export const {
     addNumberList,
-    inscreaseNumber, setTextInputButtonState,
+    inscreaseNumber, setTextInputButtonState, deleteCopyCount,
     addControlList,
     inscreaseDataBuyList, deleteControlList, deleteNumberList,
     refresh,

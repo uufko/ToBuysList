@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { addToList, addCopyCount, setAlertText } from '../../Slice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Style } from './Style';
-import UButton from '../../src/components/atoms/uButton/uButton';
 import UModal from '../../src/components/atoms/uModal/uModal';
 
 const List = () => {
