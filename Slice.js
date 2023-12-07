@@ -33,7 +33,7 @@ const Slice = createSlice({
         },
         addCopyCount(state,newProduch){
             state.copyOfCount.push(newProduch.payload)
-            console.log(state.copyOfCount.sort());
+            state.copyOfCount.sort()
         },
         inscreaseNumber(state, index) {
             state.numberList[index.payload]++

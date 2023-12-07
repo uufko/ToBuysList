@@ -51,25 +51,25 @@ const ProductList = () => {
         }}
       />}
       <FlatList
-        data={List}
+        data={copyCount}
         renderItem={({ item }) => {
           return (
             <FlatListItem listDeleteIconPressed={() => {
-              const index = List.indexOf(item)
+              const index = copyCount.indexOf(item)
               dispatch(deleteListItem(index))
               dispatch(deleteCopyCount(index))
             }}
               listDeleteIconVisible={listDeleteIcon}
-              text={item.product}
+              text={item}
               onPress={() => {
-                if (counter.controlList.find(s => s == item.product)) {
-                  const sonuc = controlList.find(e => e == item.product) //product ve number 
+                if (counter.controlList.find(s => s == item)) {
+                  const sonuc = controlList.find(e => e == item) //product ve number 
                   const index = controlList.indexOf(sonuc) //index
                   dispatch(inscreaseNumber(index))
                 }
                 else {
-                  dispatch(addControlList(item.product))
-                  dispatch(addNumberList(item.number))
+                  dispatch(addControlList(item))
+                  dispatch(addNumberList(1))
                 }
               }} 
               />
