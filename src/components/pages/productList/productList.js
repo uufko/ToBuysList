@@ -31,7 +31,7 @@ const ProductList = () => {
         }}
         value={newProduct}
         onPress={() => {
-          if (copyCount.find(s => s == newProduct) == newProduct) {
+          if (copyCount.find(s => s == newProduct.toLowerCase()) == newProduct.toLowerCase()) {
             //Alert.alert(`${newProduct} zaten eklenmiş`)
             ToastAndroid.showWithGravity
               (`${newProduct} zaten eklenmiş`,
@@ -39,6 +39,7 @@ const ProductList = () => {
                 ToastAndroid.CENTER)
 
             dispatch(setAlertText())
+            console.log(newProduct);
             //setButtonPressed(true)
           }
           else if (newProduct == "") {
