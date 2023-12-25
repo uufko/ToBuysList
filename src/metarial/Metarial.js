@@ -10,7 +10,8 @@ export const Images = {
     lightClose : require('../../assets/images/lightClose.png'),
     lightEdit : require('../../assets/images/lightEdit.png'),
     darkEdit : require('../../assets/images/dartEdit.png'),
-    lightRemove : require('../../assets/images/lightRemove.png')
+    lightRemove : require('../../assets/images/lightRemove.png'),
+    darkRemove: require('../../assets/images/darkRemove.png')
 
 }
 

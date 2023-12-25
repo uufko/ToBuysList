@@ -15,7 +15,7 @@ const FlatListItem = ({text,onPress, listDeleteIconVisible,listDeleteIconPressed
             <View
                 style={Style.viewStyle}>
                 <Text style={[Style.textStyle, {color:counter.currentFontColor}]}>{text}</Text>
-                {listDeleteIconVisible && <UImage onPress={listDeleteIconPressed} imageSource={Images.lightRemove}/>}
+                {listDeleteIconVisible && <UImage onPress={listDeleteIconPressed} imageSource={counter.currentRemoveIcon}/>}
             </View>
         </TouchableOpacity>
     )

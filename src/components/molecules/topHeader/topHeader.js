@@ -11,7 +11,7 @@ const TopHeader = ({headerText, removeAllData}) => {
   const counter = useSelector(state => state.counter);
   return (
     <View style={[Style.container, {backgroundColor:counter.currentViewColor}]}>
-      <View style={{flex:5}}>
+      <View style={{flex:6}}>
       <Text style={[Style.textStyle,{color:counter.currentFontColor}]}>{headerText}</Text>
       </View>
       <View style={{flex:2,flexDirection:"row", marginHorizontal:10, justifyContent:"space-between"}}>

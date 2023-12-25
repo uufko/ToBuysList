@@ -39,7 +39,6 @@ const ProductList = () => {
                 ToastAndroid.CENTER)
 
             dispatch(setAlertText())
-            console.log(newProduct);
             //setButtonPressed(true)
           }
           else if (newProduct == "") {
