@@ -116,6 +116,7 @@ const ToBuyList = () => {
       .then(() => alert('Bütün listeler silindi'))
       .catch(er => alert(er));
   };
+  const [keyboard, setKeyboard] = useState(false)
 
   return (
     <SafeAreaView style={[Style.container, { rowGap: 2 },{backgroundColor:counter.currentContainerColor}]}>
@@ -125,7 +126,7 @@ const ToBuyList = () => {
       <BuyList />
       </View> 
       <View style={[Style.viewStyle,{flex:4}]}>
-      <ProductList/>
+      <ProductList />
       </View>
       {/* <View >
         <List />

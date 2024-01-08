@@ -6,7 +6,7 @@ import FlatListItem from '../../atoms/listItem/listItem';
 import { addToList, addCopyCount, setAlertText, addControlList, addNumberList, inscreaseNumber,  deleteListItem, deleteCopyCount } from '../../../../Slice';
 import TextInputWithButton from '../../atoms/textInputWithButton/textInputWithButton';
 
-const ProductList = () => {
+const ProductList = ({onPressIn}) => {
   const dispatch = useDispatch();
   const counter = useSelector(state => state.counter);
   const List = counter.count;
@@ -26,6 +26,7 @@ const ProductList = () => {
           setAddProductWindow(!addProductWindow)
         }} />
       {addProductWindow && <TextInputWithButton
+      onPressIn={onPressIn}
         onChangeText={(e) => {
           setNewProduct(e)
         }}
