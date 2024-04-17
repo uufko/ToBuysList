@@ -15,7 +15,6 @@ const UHeader = ({headerText}) => {
       <Text style={Style.textStyle}>{headerText}</Text>
       </View>
       <View style={{flex:2,flexDirection:"row", marginHorizontal:10, justifyContent:"space-between"}}>
-      <UImage imageSource={Images.darkDeleteIcon} onPress={()=>dispatch(refresh())} />
       <UImage imageSource={Images.darkThemeIcon} onPress={()=>dispatch(setColorState())}/>
       </View>
     </View>

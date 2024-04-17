@@ -20,10 +20,10 @@ export const Fonts = {
 }
 
 export const Colors = {
-    darkContainerColor:"#222222",
-    darkViewColor: "#0a0a0a",
+    darkContainerColor:"#020202",
+    darkViewColor: "#101112",
     darkFontColor: "#21c063",
-    lightContainerColor: "#f2f1f6",
+    lightContainerColor: "#f6f5fa",
     lightViewColor: "white",
     lightFontColor: "#1ea0e2",
 }

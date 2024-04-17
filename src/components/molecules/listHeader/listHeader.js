@@ -13,7 +13,7 @@ const ListHeader = ({ headerText ,onPress,addButtonPressed}) => {
 
   const counter = useSelector(state => state.counter);
   return (
-    <View style={[Style.container,{backgroundColor:counter.currentViewColor}]}>
+    <View style={[Style.container, {backgroundColor:counter.currentViewColor}]}>
       <View style={{ flex: 6, }}>
         <Text style={[Style.textStyle,{color:counter.currentFontColor}]}>{headerText}</Text>
       </View>

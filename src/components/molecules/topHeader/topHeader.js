@@ -14,10 +14,7 @@ const TopHeader = ({headerText, removeAllData}) => {
       <View style={{flex:6}}>
       <Text style={[Style.textStyle,{color:counter.currentFontColor}]}>{headerText}</Text>
       </View>
-      <View style={{flex:2,flexDirection:"row", marginHorizontal:10, justifyContent:"space-between"}}>
-      <UImage imageSource={counter.currentDeleteIcon} onPress={()=>
-        dispatch(refresh())
-        } />
+      <View style={{flex:2,flexDirection:"row", marginHorizontal:10, justifyContent:"flex-end"}}>
       <UImage imageSource={counter.currentThemeIcon} onPress={()=>
         dispatch(setColorState())}/>
       </View>

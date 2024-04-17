@@ -13,10 +13,6 @@ export const Style = StyleSheet.create({
     marginVertical: 2,
     marginHorizontal: 4,
     borderRadius: 10,
-    shadowColor: 'black',
-    shadowOpacity: 0.5,
-    elevation: 3,
-    shadowOffset: {height: 7, width: 3},
     flexDirection: 'row', 
     flex:15,
     height:deviceHeight*.07

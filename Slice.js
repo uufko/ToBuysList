@@ -109,8 +109,8 @@ const Slice = createSlice({
             }
             else {
                 state.currentFontColor = Colors.lightFontColor,
-                    state.currentViewColor = Colors.lightViewColor,
-                    state.currentContainerColor = Colors.lightContainerColor
+                state.currentViewColor = Colors.lightViewColor,
+                state.currentContainerColor = Colors.lightContainerColor
                 state.currentDeleteIcon = Images.lightDelete
                 state.currentThemeIcon = Images.lightTheme
                 state.currentAddIcon = Images.lightAdd
