@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import { Fonts } from '../../src/metarial/Metarial';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
@@ -19,10 +20,9 @@ export const Style = StyleSheet.create({
     
   },
   textStyle: {
-    fontFamily: 'Poppins-SemiBold',
+    fontFamily: Fonts.projectFont,
     color: 'white',
-    fontSize: 13,
-    paddingVertical: 10,
+    fontSize: deviceHeight*.022,
     paddingLeft: 5,
   },
   viewStyle:{
@@ -34,5 +34,8 @@ export const Style = StyleSheet.create({
     justifyContent: 'center',
     width:deviceWidth*.05,
     
+  },
+  leftNumberStyle:{
+    fontSize:deviceHeight*.03
   }
 });

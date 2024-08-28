@@ -11,21 +11,24 @@ export const Images = {
     lightEdit : require('../../assets/images/lightEdit.png'),
     darkEdit : require('../../assets/images/dartEdit.png'),
     lightRemove : require('../../assets/images/lightRemove.png'),
-    darkRemove: require('../../assets/images/darkRemove.png')
+    darkRemove: require('../../assets/images/darkRemove.png'),
+    darkAddCancel: require('../../assets/images/darkAddCancel.png'),
+    lightAddCancel: require('../../assets/images/lightAddCancel.png')
 
 }
 
 export const Fonts = {
-    projectFont:"Poppins-SemiBold"
+    projectFont:"IndieFlower-Regular"
 }
 
 export const Colors = {
     darkContainerColor:"#020202",
     darkViewColor: "#101112",
-    darkFontColor: "#21c063",
+    darkFontColor: "white",
+    /////////////////////////
     lightContainerColor: "#f6f5fa",
     lightViewColor: "white",
-    lightFontColor: "#1ea0e2",
+    lightFontColor: "black",
 }
 export const Data = {
     listData: [

@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { Colors } from '../../../metarial/Metarial';
+import { Colors, Fonts } from '../../../metarial/Metarial';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
@@ -20,9 +20,9 @@ export const Style = StyleSheet.create({
         margin: 2,
     },
     textStyle: {
-        fontFamily: "Poppins-SemiBold",
+        fontFamily: Fonts.projectFont,
         color: Colors.darkFontColor,
-        fontSize: 20,
+        fontSize: deviceHeight*.025,
         padding: 5,
         marginLeft: 10,
     },

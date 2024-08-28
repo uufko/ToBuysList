@@ -31,7 +31,7 @@ export const Style = StyleSheet.create({
         borderTopLeftRadius:20,
         borderBottomLeftRadius:20,
         fontFamily:Fonts.projectFont,
-        fontSize:13, color:Colors.darkFontColor
+        fontSize:deviceHeight*.02, color:Colors.lightFontColor
     },
     textStyle:{
         fontFamily:Fonts.projectFont

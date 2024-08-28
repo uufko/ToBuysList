@@ -3,12 +3,14 @@ import React from 'react';
 import { decreaseData } from '../../Slice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Style } from './Style';
+import { Colors, Fonts } from '../../src/metarial/Metarial';
 
 const BuyList = () => {
   const dispatch = useDispatch();
   const counter = useSelector(state => state.counter);
   const controlList = counter.controlList
   const numberList = counter.numberList
+  const colorState = counter.colorState
   return (
     <View style={Style.container}>
       <FlatList
@@ -26,7 +28,7 @@ const BuyList = () => {
               style={[Style.touchableStyle, {backgroundColor:counter.currentViewColor}]}>
               <View
                 style={[Style.viewStyle, {backgroundColor:counter.currentFontColor}]}>
-                <Text style={{ color: 'white', fontFamily: 'Poppins-SemiBold' }}>
+                <Text style={ [Style.leftNumberStyle, { color: colorState==false ? Colors.lightFontColor:Colors.darkFontColor, fontFamily: Fonts.projectFont }]}>
                   {numberList[controlList.indexOf(item)]}
                 </Text>
               </View>

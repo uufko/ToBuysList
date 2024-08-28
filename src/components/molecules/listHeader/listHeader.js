@@ -2,13 +2,11 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { Style } from './../topHeader/style'
 import UImage from '../../atoms/uImage/uImage'
-import { Colors, Images } from '../../../metarial/Metarial'
 import { useDispatch, useSelector } from 'react-redux';
-import { refresh } from '../../../../Slice'
 
 
 
-const ListHeader = ({ headerText ,onPress,addButtonPressed}) => {
+const ListHeader = ({ headerText ,onPress,addButtonPressed,_state}) => {
   const dispatch = useDispatch();
 
   const counter = useSelector(state => state.counter);
@@ -19,7 +17,7 @@ const ListHeader = ({ headerText ,onPress,addButtonPressed}) => {
       </View>
       <View style={{ flex: 2, flexDirection:"row" , justifyContent:"space-around" }}>
       <UImage imageSource={counter.currentEditIcon} onPress={onPress} />
-        <UImage imageSource={counter.currentAddIcon} onPress={addButtonPressed}/>
+        <UImage imageSource={_state == true ? counter.currentAddCancelIcon: counter.currentAddIcon} onPress={addButtonPressed}/>
         
       </View>
     </View>

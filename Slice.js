@@ -22,7 +22,8 @@ const Slice = createSlice({
         currentCloseIcon: Images.lightClose,
         textInputButtonState: false,
         currentEditIcon: Images.lightEdit,
-        currentRemoveIcon: Images.lightRemove
+        currentRemoveIcon: Images.lightRemove,
+        currentAddCancelIcon: Images.lightAddCancel
         //global değer
     },
     reducers: {
@@ -79,6 +80,8 @@ const Slice = createSlice({
                 state.currentCloseIcon = Images.darkClose
                 state.currentEditIcon = Images.darkEdit
                 state.currentRemoveIcon = Images.darkRemove
+                state.currentAddCancelIcon = Images.darkAddCancel
+
             }
             else {
                 state.currentFontColor = Colors.lightFontColor,
@@ -90,6 +93,7 @@ const Slice = createSlice({
                 state.currentCloseIcon = Images.lightClose
                 state.currentEditIcon = Images.lightEdit
                 state.currentRemoveIcon = Images.lightRemove
+                state.currentAddCancelIcon = Images.lightAddCancel
             }
         },
         setThemeStyle(state, themeState) {

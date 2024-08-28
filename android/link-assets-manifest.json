@@ -2,8 +2,20 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/fonts/IndieFlower-Regular.ttf",
+      "sha1": "dab8ff786dd1c6a3e8fa8a54d4d59cf9a703efe1"
+    },
+    {
+      "path": "assets/fonts/NewAmsterdam.ttf",
+      "sha1": "aa5bd0b8fad20c40385e52641d94f2fd42783d73"
+    },
+    {
       "path": "assets/fonts/Poppins-SemiBold.ttf",
       "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
+    },
+    {
+      "path": "assets/fonts/Quicksand.ttf",
+      "sha1": "17fb514f853cfeb7176a384fa29358e9c4b76c39"
     }
   ]
 }

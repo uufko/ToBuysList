@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+import { Fonts } from "../../src/metarial/Metarial";
   
+const deviceHeight = Dimensions.get('window').height;
 export const Style = StyleSheet.create({
 
     viewStyle: {
@@ -15,9 +17,9 @@ export const Style = StyleSheet.create({
         backgroundColor:"black"
     },
     textStyle: {
-        fontFamily: "Poppins-SemiBold",
+        fontFamily: Fonts.projectFont,
         color: "white",
-        fontSize: 13,
+        fontSize: deviceHeight*.04,
         marginVertical: 2,
         padding: 10, 
         

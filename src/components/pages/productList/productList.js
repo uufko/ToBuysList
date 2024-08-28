@@ -21,18 +21,18 @@ const ProductList = ({onPressIn}) => {
 
       <ListHeader
         onPress={() => setListDeleteIcon(!listDeleteIcon)}
-        headerText={"Listem"} 
-        addButtonPressed={() => {
+        headerText={"Listem"}  _state={addProductWindow}
+        addButtonPressed={() => { 
           setAddProductWindow(!addProductWindow)
         }} />
-      {addProductWindow && <TextInputWithButton
+      {addProductWindow && <TextInputWithButton 
       onPressIn={onPressIn}
         onChangeText={(e) => {
           setNewProduct(e)
         }}
         value={newProduct}
         onPress={() => {
-          if (copyCount.find(s => s == newProduct.toLowerCase()) == newProduct.toLowerCase()) {
+          if (copyCount.find(s => s == newProduct.toLocaleUpperCase()) == newProduct.toLocaleUpperCase()) {
             //Alert.alert(`${newProduct} zaten eklenmiş`)
             ToastAndroid.showWithGravity
               (`${newProduct} zaten eklenmiş`,
@@ -45,8 +45,8 @@ const ProductList = ({onPressIn}) => {
           else if (newProduct == "") {
           }
           else {
-            dispatch(addToList(newProduct))
-            dispatch(addCopyCount(newProduct))
+            dispatch(addToList(newProduct.toLocaleUpperCase()))
+            dispatch(addCopyCount(newProduct.toLocaleUpperCase()))
             setNewProduct("")
           }
         }}

@@ -14,7 +14,7 @@ const TextInputWithButton = ({ onChangeText, value, onPress }) => {
                 maxLength={20}
                 onChangeText={onChangeText}
                 value={value}
-                style={[Style.textInputStyle, {backgroundColor:counter.currentViewColor}]}
+                style={[Style.textInputStyle, {backgroundColor:counter.currentViewColor,color:counter.currentFontColor}]}
                 placeholder='Ürün giriniz'
                 placeholderTextColor={counter.currentFontColor} />
             <TouchableOpacity onPress={onPress}
